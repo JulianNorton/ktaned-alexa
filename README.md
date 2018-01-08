@@ -2,4 +2,4 @@
 Voice assistant project for "Keep Talking and Nobody Explodes"
 
 
-Powered by: https://github.com/MartinHarding/ktaned
+Powered by the python module: https://github.com/MartinHarding/ktaned
