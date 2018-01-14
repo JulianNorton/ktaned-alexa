@@ -14,11 +14,11 @@
     "type": "IntentRequest",
     "requestId": "EdwRequestId.a026eb01-ab9b-40a3-acb9-92e89691d18a",
     "intent": {
-      "name": "MyColorIsIntent",
+      "name": "SimpleWires",
       "slots": {
-        "Color": {
-          "name": "Color",
-          "value": "yellow"
+        "wireCount": {
+          "name": "wires",
+          "value": "12"
         }
       }
     },

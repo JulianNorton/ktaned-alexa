@@ -7,9 +7,6 @@ For additional samples, visit the Alexa Skills Kit Getting Started guide at
 http://amzn.to/1LGWsLG
 """
 
-from __future__ import print_function
-
-
 # --------------- Helpers that build all of the responses ----------------------
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
@@ -124,6 +121,25 @@ def get_color_from_session(intent, session):
     return build_response(session_attributes, build_speechlet_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
 
+def simple_wires(intent, session):
+    session_attributes = {}
+    reprompt_text = None
+
+    if session.get('attributes', {}) and "favoriteColor" in session.get('attributes', {}):
+        favorite_color = session['attributes']['favoriteColor']
+        speech_output = "HELLO WORLD " + favorite_color + \
+                        ". Goodbye."
+        should_end_session = True
+    else:
+        speech_output = "WIRES WIRES EVERYWHERE"
+        should_end_session = False
+
+    # Setting reprompt_text to None signifies that we do not want to reprompt
+    # the user. If the user does not respond or says something that is not
+    # understood, the session will end.
+    return build_response(session_attributes, build_speechlet_response(
+        intent['name'], speech_output, reprompt_text, should_end_session))
+
 
 # --------------- Events ------------------
 
@@ -155,7 +171,9 @@ def on_intent(intent_request, session):
     intent_name = intent_request['intent']['name']
 
     # Dispatch to your skill's intent handlers
-    if intent_name == "MyColorIsIntent":
+    if intent_name == "SimpleWires":
+        return simple_wires(intent, session)
+    elif intent_name == "MyColorIsIntent":
         return set_color_in_session(intent, session)
     elif intent_name == "WhatsMyColorIntent":
         return get_color_from_session(intent, session)

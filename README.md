@@ -5,5 +5,5 @@ Powered by the python module: https://github.com/MartinHarding/ktaned
 ## CLI testing
 
 ```
-trigger_sample.py
+python trigger_sample.py
 ```
