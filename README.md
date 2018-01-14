@@ -5,5 +5,5 @@ Powered by the python module: https://github.com/MartinHarding/ktaned
 ## CLI testing
 
 ```
-ask api simulate-skill -t "my favorite color is red" -l "en-US" --skill-id "{{skill_ID_here}}" --debug
+trigger_sample.py
 ```
